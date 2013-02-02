@@ -8,7 +8,7 @@
 	<p>The use of x at line 10 is bound at line 6.</p>
 	<p>The use of x at line 13 is bound at line 1.</p>
 
-3. Yes, the body of g is well-typed with type Int.
-	<p>a, b: Int because</p>
-		<p>1 & 3: Int because that is their type by default</p>
-		<p>x: Int because it is define as Int in line 1</p>
+<p>3. Yes, the body of g is well-typed with type Int.</p>
+	a, b: Int because
+		1 & 3: Int because that is their type by default
+		x: Int because it is define as Int in line 1
