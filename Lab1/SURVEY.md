@@ -1,16 +1,16 @@
 Lab 1 Survey
 ============
 
-1.  Your Name
+1.  Kevin Barry
 
-2.  Your Partner's Name
+2.  N/A
 
-3.  Your Citations (e.g., other collaborators, outside resources)
+3.  N/A
 
-4.  Approximately how many hours did you spend on this assignment? (given one number)
+4.  6
 
-5.  Qualitatively (on a scale of 1 to 5), how hard did you find this assignment (1=easy, 5=hard)?
+5.  4 (Personally. I realize it was not a 4/5 difficulty level assignment)
 
-6.  What piece did you find to be the hardest part?  
+6.  Converting concepts that I understood into scala code that did what I wanted. The tree problem, for example.  
 
-7.  Any more comments on this assignment?
+7.  N/A
