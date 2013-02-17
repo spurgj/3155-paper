@@ -7,32 +7,32 @@ Please fill out answers to each of the following questions.  Any non-empty answe
 
 ### Your Name
 
-[MODIFY HERE]
+[Kevin Barry]
 
 ### Citations
 
 Other collaborators, outside resources, etc.
 
-[MODIFY HERE]
+[None]
 
 ### Time Spent
 
 Approximately how many hours did you spend on this assignment?
 
-[MODIFY HERE]
+[6]
 
 ### Difficulty
 
 Qualitativly (on a scale of 1 to 5, with 5 being the hardest) how hard did you find this assignment?
 
-[MODIFY HERE]
+[3.5]
 
 ### Hardest Part
 
 What piece did you find to be the hardest part?
 
-[MODIFY HERE]
+[I found it difficult to figure out the case statements for print]
 
 ### Additional Comments
 
-[MODIFY HERE]
+[None]
