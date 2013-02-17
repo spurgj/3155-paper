@@ -1,0 +1,61 @@
+Chang Notes
+-Through 2.1
+Sebasta Optional book
+3.1-3.3 - Derivations System Trees
+
+Language => Set of strings/sentences
+Alphabet => Sentences/concrete terms/letters
+Grammar => Describes which sentences are in a language
+	BNF - Backus-Naur Form (S ::= AaBb)
+		-Lower case = terminals/symbols (a, b for 2)
+
+2d. 1, 4 only
+
+S ::= AaBb
+::= baBb
+::= baab
+
+Parse tree (S :: = AaBb)
+		S
+	/	/\	\
+	A   a B  b
+	|   | |  |
+	b   a a  b
+
+Epsilon = remove the letter
+
+2a. Judgements
+
+premises
+----------
+conclusions
+
+----------- Axiom
+conclusions
+
+
+______ is in (epsilon) VObj
+______ is in (epsilon) AObj
+
+V ::= a
+
+------------ Axiom
+a E(is in) VObj
+
+x E Vobj
+---------
+x E Aobj
+
+Lab2.scala
+Edit eval(env, e):Expr = e match {
+	lots o' cases
+	case Binary(Plus, e1, e2) => 
+		val v1 = eval(env, e1)   
+		val v2 = eval(e2)
+		v1, v2) match {
+			case(N(n1), N(n2)) =>
+		}
+}
+
+Note 5 != N(5)
+Undefined + 7 - true = ?
