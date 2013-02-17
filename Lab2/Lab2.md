@@ -15,7 +15,7 @@
 
 > d. 1 & 4 are the only possible sentences described by the grammar (See attached)
 
->e. 1 & 5 are the only possible sentences (See attached)
+>e. 1 & 5 are the only possible sentences (See Problem 2.jpg)
 
 ## 3 ##
 > a. i. The expressions contain one or more operands. If more than one operand is there, it is separated by an operator.
@@ -30,13 +30,13 @@
 
 >d. First, I tested the expression 10 << 7-4 << 0 and 10 << (7-4) << 0, which both gave the same answer. Next, I tried (10 << 7) - (4 << 0), which gave a much larger answer. Ergo, - has a higher precedence.
 
->e. </p>
-**Float ::= Int, Nat Exponent</p>
-Int ::= 0 | NotZero</p>
-Nat ::= 0 | Pos</p>
-Exponent ::= ε | NotZero</p>
-NotZero ::= Sign Pos</p>
-Nums ::= 1|2|3|4|5|6|7|8|9</p>
-Pos ::= Nums Seq</p>
-Seq ::= ε | 0 Seq | Nums Seq</p>
-Sign ::= ε | -</p>**
+><p>e. </p>
+<p>Float ::= Int, Nat Exponent</p>
+<p>Int ::= 0 | NotZero</p>
+<p>Nat ::= 0 | Pos</p>
+<p>Exponent ::= ε | NotZero</p>
+<p>NotZero ::= Sign Pos</p>
+<p>Nums ::= 1|2|3|4|5|6|7|8|9</p>
+<p>Pos ::= Nums Seq</p>
+<p>Seq ::= ε | 0 Seq | Nums Seq</p>
+<p>Sign ::= ε | -</p>
