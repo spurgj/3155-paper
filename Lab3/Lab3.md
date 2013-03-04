@@ -9,18 +9,14 @@ The small step interpreter is deterministic. The way the small step interpreter 
 
 ## 4a. ##
 
-`def procedure():(Any,Any) => Unit = { 
-	println("procedure")
- def arg1():Any = {
-	println("arg1")
- }
- def arg2():Any = {
-	println("arg2")`
+	def procedure():(Any,Any) => Unit = println("procedure")
+ 	def arg1():Any = println("arg1")
+ 	def arg2():Any = println("arg2")
 
 Output from above code using procedure(arg1(),arg2()):
-`procedure
-arg1
-arg2`
+	procedure
+	arg1
+	arg2
 
 i, ii. Based on the code above, scala evaluates the arguments for a procedure after evaluating the procedure itself (i.e left -> right).
 
@@ -33,14 +29,14 @@ Short circuit evaluation on an operator such as && can be useful if your second 
 ## 5b. ##
 Scala does use short-circuit evaluation of boolean operators.
 
-`def x() = {
-	println("t")
-	true
-}
-def y() = {
-	println("f")
-	false
-}`
+	def x() = {
+		println("t")
+		true
+	}
+	def y() = {
+		println("f")
+		false
+	}
 
 x() && y() && any number of x() or y()'s &&'d on will return false because x() && y() is false. 
 
