@@ -49,6 +49,8 @@ object Lab2 {
     require(isValue(v))
     (v: @unchecked) match {
       case B(b) => b
+    //  case B(true) => toBoolean(true)
+     // case B(false) => toBoolean(false)
       case _ => throw new UnsupportedOperationException
     }
   }
