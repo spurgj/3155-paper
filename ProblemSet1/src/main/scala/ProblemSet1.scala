@@ -22,5 +22,7 @@ object ProblemSet1 {
     }
     
     def join[A,B](xs: List[A], ys: List[B], p: (A, B) => Boolean):List[(A,B)] = 
-        throw new UnsupportedOperationException
+        val newList = for (x <- xs; y <- ys) 
+            yield x
+        
 }

@@ -34,12 +34,21 @@ object Lab4 {
   /* Lists */
   
   def compressRec[A](l: List[A]): List[A] = l match {
-    case Nil | _ :: Nil => throw new UnsupportedOperationException
-    case h1 :: (t1 @ (h2 :: _)) => throw new UnsupportedOperationException
+    case Nil | _ :: Nil => l
+    case h1 :: (t1 @ (h2 :: _)) => if (h1 == h2) compressRec(t1) else h1 :: compressRec(t1)
   }
   
   def compressFold[A](l: List[A]): List[A] = l.foldRight(Nil: List[A]){
-    (h, acc) => throw new UnsupportedOperationException
+    //Does this: (1, 1, 1, 2, 2, 3, 3, 1, 1, 1) --> (1, 2, 3, 1)
+    // h and acc are parameters to the higher-order function
+    // h is the next (rightmost) element of the list l
+    // acc is our accumulator
+
+    //Syntax: Lists can be expressed as h :: t
+    (h, acc) => acc match {
+      case Nil => h :: Nil
+      case h1 :: t => if(h == h1) acc else h :: acc
+    }
   }
   
   def testCompress(compress: List[Int] => List[Int]): Boolean =
@@ -48,8 +57,11 @@ object Lab4 {
   //assert(testCompress(compressFold))
   
   def mapFirst[A](f: A => Option[A])(l: List[A]): List[A] = l match {
-    case Nil => throw new UnsupportedOperationException
-    case h :: t => throw new UnsupportedOperationException 
+    case Nil => Nil
+    case h :: t => f(h) match {
+      case None => h :: mapFirst(f)(t)
+      case Some(x) => x :: t
+    }
   }
   
   def testMapFirst(mapFirst: (Int => Option[Int]) => List[Int] => List[Int]): Boolean =
@@ -71,7 +83,7 @@ object Lab4 {
     
     def foldLeft[A](z: A)(f: (A, Int) => A): A = {
       def loop(acc: A, t: Tree): A = t match {
-        case Empty => throw new UnsupportedOperationException
+        case Empty => acc
         case Node(l, d, r) => throw new UnsupportedOperationException
       }
       loop(z, this)
@@ -139,6 +151,11 @@ object Lab4 {
         case TNumber => TNumber
         case tgot => err(tgot, e1)
       }
+      /*case Binary(Plus, e1, e2) => (typ(e1), typ(e2)) => {
+        (TNumber, TNumber) => TNumber
+        (TString, TString) => TString
+        (t1, t2) => err(t1, e1)
+      }*/
       case Function(p, params, tann, e1) => {
         // Bind to env1 an environment that extends env with an appropriate binding if
         // the function is potentially recursive.

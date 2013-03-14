@@ -41,7 +41,8 @@ object Lab2 {
     require(isValue(v))
     (v: @unchecked) match {
       case N(n) => n
-      case _ => throw new UnsupportedOperationException
+      case B(b) => if (b) 1.0 else 0.0
+      case Undefined => Double.NaN
     }
   }
   
@@ -49,9 +50,8 @@ object Lab2 {
     require(isValue(v))
     (v: @unchecked) match {
       case B(b) => b
-    //  case B(true) => toBoolean(true)
-     // case B(false) => toBoolean(false)
-      case _ => throw new UnsupportedOperationException
+      case N(n) => n != 0.0
+      case Undefined => false
     }
   }
     
@@ -59,28 +59,45 @@ object Lab2 {
     e match {
       /* Base Cases */
       case _ if (isValue(e)) => e
- 
+      case ConstDecl(x, e1, e2) => {
+        eval(extend(env, x, eval(env, e1)), e2)
+      }
+      case Var(x) => get(env, x)
       /* Inductive Cases */
       case Print(e1) => println(eval(env, e1)); Undefined
      
-      case Binary(Plus, N(e1), N(e2)) => (N(e1 + e2))
-      case Binary(Minus, N(e1), N(e2)) => (N(e1 - e2))
-      case Binary(Times, N(e1), N(e2)) => (N(e1 * e2))
-      case Binary(Div, N(e1), N(e2)) => (N(e1 / e2))
-      case Binary(Eq, v1, v2) if isValue(v1) && isValue(v2) => eval(env, B(v1 == v2))
-
-      case Binary(Ne, e1, e2) => eval(env, e1)
-      case Binary(Lt, N(n1), N(n2)) => eval(env, B(n1 < n2))
-      case Binary(Gt, N(n1), N(n2)) => eval(env, B(n1 > n2))
-      case Binary(Le, N(n1), N(n2)) => eval(env, B(n1 <= n2))
-      case Binary(Ge, N(n1), N(n2)) => eval(env, B(n1 >= n2))
-     
-      case Binary(And, B(true), e2) => eval(env, e2)
-      case Binary(And, B(false), _) => eval(env, B(false))
-      case Binary(Or, B(true), _) => eval(env, B(true))
-      case Binary(Or, B(false), e2) => eval(env, e2)
-
-      case Binary(Seq, v1, e2) if isValue(v1) => eval(env, e2)
+      case Binary(bop, e1, e2) => bop match{
+        case Plus => N(toNumber(eval(env, e1)) + toNumber(eval(env, e2)))
+        case Minus => N(toNumber(eval(env, e1)) - toNumber(eval(env, e2)))
+        case Times => N(toNumber(eval(env, e1)) * toNumber(eval(env, e2)))
+        case Div => N(toNumber(eval(env, e1)) / toNumber(eval(env, e2)))
+        
+        case Eq => (eval(env, e1), eval(env, e2)) match {
+          case (N(x1), N(x2)) => B(x1 == x2)
+          case (B(p1), B(p2)) => B(p1 == p2)
+          case (Undefined, Undefined) => B(true)
+          case _ => B(false)
+        }
+        
+        case Ne => B(!toBoolean(eval(env, Binary(Eq, e1, e2))))
+        case Gt => B(toNumber(eval(env, e1)) > toNumber(eval(env, e2)))
+        case Lt => B(toNumber(eval(env, e1)) < toNumber(eval(env, e2)))
+        case Ge => B(toNumber(eval(env, e1)) >= toNumber(eval(env, e2)))
+        case Le => B(toNumber(eval(env, e1)) <= toNumber(eval(env, e2)))
+        
+        case And => {
+          val e1v = eval(env, e1)
+          if (!toBoolean(e1v)) e1v else eval(env, e2)
+        }
+        case Or => {
+          val e1v = eval(env, e1)
+          if (toBoolean(e1v)) e1v else eval(env, e2)
+        }
+        case Seq => {
+        eval(env, e1)
+        eval(env, e2)
+        }
+      }
       
       case Unary(Neg, N(n1)) => eval(env, N(-n1))
       case Unary(Not, B(b1)) => eval(env, B(!b1))
