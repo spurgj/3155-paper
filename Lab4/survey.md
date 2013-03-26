@@ -7,31 +7,31 @@ Please fill out answers to each of the following questions.  Any non-empty answe
 
 ### Your Name
 
-[MODIFY HERE]
+[Justin Spurgeon]
 
 ### Citations
 
 Other collaborators, outside resources, etc.
 
-[MODIFY HERE]
+[Thomas Dressler, Adnan Al-Sanaa, Wikipedia]
 
 ### Time Spent
 
 Approximately how many hours did you spend on this assignment?
 
-[MODIFY HERE]
+[15]
 
 ### Difficulty
 
 Qualitativly (on a scale of 1 to 5, with 5 being the hardest) how hard did you find this assignment?
 
-[MODIFY HERE]
+[5]
 
 ### Hardest Part
 
 What piece did you find to be the hardest part?
 
-[MODIFY HERE]
+[Understanding how the function calls worked]
 
 ### Additional Comments
 
