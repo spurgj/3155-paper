@@ -7,32 +7,32 @@ Please fill out answers to each of the following questions.  Any non-empty answe
 
 ### Your Name
 
-[MODIFY HERE]
+[Kevin Barry]
 
 ### Citations
 
 Other collaborators, outside resources, etc.
 
-[MODIFY HERE]
+[Books/links from readme.md]
 
 ### Time Spent
 
 Approximately how many hours did you spend on this assignment?
 
-[MODIFY HERE]
+[8 hours]
 
 ### Difficulty
 
 Qualitativly (on a scale of 1 to 5, with 5 being the hardest) how hard did you find this assignment?
 
-[MODIFY HERE]
+[4.5]
 
 ### Hardest Part
 
 What piece did you find to be the hardest part?
 
-[MODIFY HERE]
+[I found it most difficult to figure out how to implement Objects and GetField]
 
 ### Additional Comments
 
-[MODIFY HERE]
+[N/A]
