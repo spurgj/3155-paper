@@ -1,0 +1,17 @@
+/*
+ * This test case tests a function, string concatenation, and string comparison.
+ */
+
+function fibo(n) {
+	if (n < 2) {
+		return 1;
+	} else {
+		return fibo(n-2) + fibo(n-1);
+	}
+}
+
+jsy.print('fibo(10)' + 'abc')
+jsy.print('fibo(10) + abc')
+if (fibo(10) == '55')
+{ jsy.print('Success') }
+	
