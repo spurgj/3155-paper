@@ -3,10 +3,12 @@ object Lab3 {
   
   /*
    * CSCI 3155: Lab 3 
+
    * Justin Spurgeon
    * 
    * Partner: Thomas Dressler
    * Collaborators: Adnan Al-Sannaa
+
    */
 
   /*
@@ -96,6 +98,7 @@ object Lab3 {
       
       case Unary(Neg, e1) => N(- eToN(e1))
       case Unary(Not, e1) => B(! eToB(e1))
+
       									  				
       case Binary(Plus, e1, e2) => (eToVal(e1), eToVal(e2)) match {
     	//First check if expressions are strings
@@ -105,10 +108,12 @@ object Lab3 {
         case _ => N(eToN(e1) + eToN(e2))  	//Both expressions are numbers.
       }
         								
+
       case Binary(Minus, e1, e2) => N(eToN(e1) - eToN(e2))
       case Binary(Times, e1, e2) => N(eToN(e1) * eToN(e2))
       case Binary(Div, e1, e2) => N(eToN(e1) / eToN(e2))
       
+
       case Binary(Eq, e1, e2) => (eToVal(e1), eToVal(e2)) match {
         case (Function(_, _, _), _) => throw new DynamicTypeError (Binary(Eq, e1, e2))
       	case (_, Function(_, _, _)) => throw new DynamicTypeError (Binary(Eq, e1, e2))
@@ -165,6 +170,7 @@ object Lab3 {
         case _ => throw new DynamicTypeError (Call(e1, e2))
       }							
       									
+
       case _ => throw new UnsupportedOperationException
     }
   }
@@ -173,7 +179,7 @@ object Lab3 {
   
   
   /* Small-Step Interpreter with Static Scoping */
-	
+
   def substitute(e: Expr, v: Expr, x: String): Expr = {
     require(isValue(v))
     /* Simple helper that calls substitute on an expression
@@ -182,6 +188,7 @@ object Lab3 {
     /* Body */
     e match {
       case N(_) | B(_) | Undefined | S(_) => e
+
       case Print(e1) => Print(subst(e1))      
       case Var(z) if (z==x) => v 
       case Var(y) => Var(y)
@@ -199,10 +206,12 @@ object Lab3 {
   }
   
   
+
   def step(e: Expr): Expr = {
     require(!isValue(e))
     e match {
       /* Base Cases: Do Rules */
+
 
       
       case Print(v1) if (isValue(v1)) => println(pretty(v1)); Undefined
@@ -317,6 +326,7 @@ object Lab3 {
       case Binary(bop, e1, e2) => Binary(bop, step(e1), e2)
       
       case If(e1, e2, e3) => If(step(e1), e2, e3)
+
       
       case _ => throw new UnsupportedOperationException
     }
@@ -325,4 +335,5 @@ object Lab3 {
   def iterateStep(e: Expr): Expr =
     if (isValue(e)) e else iterateStep(step(e))
     
+
 }
