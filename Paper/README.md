@@ -67,8 +67,10 @@ Resources
 Below are the resources you should start in your investigation:
 
 * Python uses [PEPs][] (Python Enhancement Proposals) for language proposals. Two mailing lists are typically used, [python-ideas][] and [python-dev][] to discuss PEPs and their implementation. In addition, you may find the "What's new in Python x.y" useful in understanding the scope of changes; you may want to look at series of these "What's new" summations.
-* Scala use SIPs (Scala improvement processes). FIXME.
+* Scala use SIPs (Scala improvement processes). The Scala website maintains a list of pending, completed, and rejected Scala Improvement Processes ([SIPs][]).
 * Java uses two community processes, JEPs and JSRs. FIXME.
+* PHP uses the PHP Extension Community Library ([PECL][]) to develop and maintain C extensions for PHP. PECL extensions are coordinated with the [PEAR][] package manager.
+* Erlang utilizes the Erlang Enhancement Process ([EEP][]) derives in part from the Python Enhancement Process. The [eeps@erlang.org][] mailing list facilitates discussion and development of individual Erlang Extension Proposals.
 
 FIXME (keep for now) other languages should be added above, with links; see below for extra credit.
 
@@ -93,3 +95,8 @@ As usual, pull requests must target the relevant materials. If fixing this docum
 [python-dev]: http://mail.python.org/mailman/listinfo/python-dev
 [python-ideas]: http://mail.python.org/mailman/listinfo/python-ideas
 [Tiobe top 50]: http://www.tiobe.com/index.php/content/paperinfo/tpci/index.html
+[PECL]: http://pecl.php.net/
+[PEAR]: http://pear.php.net/
+[EEP]: http://www.erlang.org/eep.html
+[eeps@erlang.org]: http://erlang.org/mailman/listinfo/eeps
+[SIPs]: http://docs.scala-lang.org/sips/sip-list.html
