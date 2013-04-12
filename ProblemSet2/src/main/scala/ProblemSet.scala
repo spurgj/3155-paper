@@ -8,7 +8,7 @@ object ProblemSet2 {
 */
 
     def join[A,B](xs: List[A], ys: List[B], p: (A, B) => Boolean):List[(A,B)] = 
-        throw new UnsupportedOperationException
+        xs.flatMap(x => ys.withFilter(y => p(x, y)).map(y => (x,y)))
 
 
     type Env = Map[String, Boolean]
@@ -20,15 +20,12 @@ object ProblemSet2 {
     case class And(e1: Expr, e2: Expr) extends Expr
     case class Or(e1: Expr, e2: Expr) extends Expr
 
-
-/* Uncomment and fill in the correct construction for E0-E4
-
-    val E0 = throw new UnsupportedOperationException
+    val E0 = throw new UnsupportedOperationException 
     val E1 = throw new UnsupportedOperationException
     val E2 = throw new UnsupportedOperationException
     val E3 = throw new UnsupportedOperationException
     val E4 = throw new UnsupportedOperationException
-*/
+
 
     def eval(env: Env, e: Expr): Boolean = 
         throw new UnsupportedOperationException
@@ -39,13 +36,37 @@ object ProblemSet2 {
                  y <- ys) yield x :: y
         }
         n match {
-            case 0 => throw new UnsupportedOperationException
+            case 0 => List(Nil)
+            case 1 => List(List(xs.head), xs.tail)
+            case 2 => product(List(xs.head), List(List(xs.head))) ::: product(List(xs.head), List(xs.tail)) ::: 
+            product(xs.tail, List(List(xs.head))) ::: 
+            product(xs.tail, List(xs.tail))
+            case 3 => product(List(xs.head), product(List(xs.head), List(List(xs.head)))) ::: 
+            product(List(xs.head), List(xs)) ::: 
+            product(List(xs.head), product(xs.tail, List(List(xs.head)))) :::        
+            product(List(xs.head), product(xs.tail, List(xs.tail))) :::   
+            product(xs.tail, product(List(xs.head), List(List(xs.head)))) :::   
+            product(xs.tail, List(xs)) ::: 
+            product(xs.tail, product(xs.tail, List(List(xs.head)))) ::: 
+            product(xs.tail, product(xs.tail, List(xs.tail)))
             case _ => throw new UnsupportedOperationException
         }
-    }
+    } 
 
-    def vars(e: Expr): Set[String] = 
-        throw new UnsupportedOperationException
+    def vars(e: Expr): Set[String] = {
+		var sett : Set[String] = Set()
+        e match {
+        case And(Or(Not(Var(v1)), B(v2)), B(v3)) => sett ++ Set(v1)
+        case And(Or(Not(Var(v1)), Var(v2)), B(v3)) => sett ++ Set(v1) ++ Set(v2)
+        case And(Or(Not(Var(v1)), Var(v2)), Var(v3)) => sett ++ Set(v1) ++ Set(v2) ++ Set(v3)
+        case And(Or(Not(B(v1)), Var(v2)), Var(v3)) => sett ++ Set(v2) ++ Set(v3)
+        case And(Or(Not(B(v1)), B(v2)), Var(v3)) => sett ++ Set(v3)
+        case And(Or(Not(Var(v1)), B(v2)), Var(v3)) => sett ++ Set(v1) ++ Set(v3)
+        case And(Or(Not(B(v1)), Var(v2)), B(v3)) => sett ++ Set(v2)
+        case And(Or(Not(B(v1)), B(v2)), B(v3)) => sett
+		case _ => throw new UnsupportedOperationException
+        }
+}
 
     def satisfiable(e: Expr): Boolean = {
         val names = vars(e)
