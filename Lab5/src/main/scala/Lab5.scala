@@ -3,7 +3,7 @@ object Lab5 {
   
   /*
    * CSCI 3155: Lab 5
-   * <Your Name>
+   * Kevin Barry
    * 
    * Partner: <Your Partner's Name>
    * Collaborators: <Any Collaborators>
@@ -372,6 +372,22 @@ object Lab5 {
         }
         
       /*** Fill-in more cases here. ***/
+      //DoConst
+      case Decl(Const, x, v1, e2) if isValue(v1) => {
+        val ep = substitute(e2, v1, x)
+        (m, ep)
+      }
+
+      //DoVar
+      case Decl(Var, x, v1, e2) if isValue(v1) => {
+        //Create a new memory space
+        val a = A.fresh()
+        //Extend the memory mapping a -> v1
+        val mp = m + (a -> v1)
+        //Dereference to a
+        val deref = Unary(Deref, a) //deref = *a
+        val e2p = substitute(e2, deref, x)
+      }
         
       /* Inductive Cases: Search Rules */
       case Print(e1) =>

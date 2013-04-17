@@ -8,8 +8,10 @@ object ProblemSet2 {
 */
 
     def join[A,B](xs: List[A], ys: List[B], p: (A, B) => Boolean):List[(A,B)] = 
+        //xs.flatMap(x => ys.flatMap(y => {(x, y)}))
+        //xs.flatMap(x => ys.withFilter(y => p(x, y)).map((x) => {(x, y)}))
         throw new UnsupportedOperationException
-
+            
 
     type Env = Map[String, Boolean]
 
@@ -24,9 +26,9 @@ object ProblemSet2 {
 /* Uncomment and fill in the correct construction for E0-E4
 
     val E0 = throw new UnsupportedOperationException
-    val E1 = throw new UnsupportedOperationException
+    val E1 = x1 And x2 And x3
     val E2 = throw new UnsupportedOperationException
-    val E3 = throw new UnsupportedOperationException
+    val E3 = Not (x Or y)
     val E4 = throw new UnsupportedOperationException
 */
 
@@ -39,7 +41,7 @@ object ProblemSet2 {
                  y <- ys) yield x :: y
         }
         n match {
-            case 0 => throw new UnsupportedOperationException
+            case 0 => List(Nil)
             case _ => throw new UnsupportedOperationException
         }
     }
