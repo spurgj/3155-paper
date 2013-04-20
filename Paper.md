@@ -7,3 +7,5 @@
 ## How Was it Implemented and Why? ##
 
 ## Proposed Revisions ##
+
+# Conclusion #
