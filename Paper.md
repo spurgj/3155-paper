@@ -4,10 +4,6 @@ The proposed implementation was an itarator object that allows programmers to lo
 more easily and elegantly.  The overarching goal of the proposal can be summarized as follows: performance 
 enhancements for pbject iteration with respect to dictionaries, files, lists, and other objects implemented
 as collections and sequences. 
- 
-## Prior to Iterators ##
-
-
 
 ## Object Iterators ##
   The iterator proposed in PEP 234 added new memory space "slots" for the next item in the sequence and 
@@ -44,6 +40,19 @@ value.  The PyIter_Next() function actually clears this exception, making the Nu
 
 # The Proposal #
 ## How Was it Implemented and Why? ##
+  In Python's API, a new built-in function (iter()) was defined. It could be called in one of two ways:
+  
+  1: iter(obj) calls PyObject_GetIter(obj) or 
+  
+  2: iter(callable, sentinel)
+  
+  This second instance returns a special kind of iterator that calls the callable to produce a new value, and compares the 
+return value to the sentinel value. Iteration is terminated if the return value equals the sentinel. If they are not equal,
+the return value is returned as the next value from the iterator. Alternatively, the aforementioned "StopIteration" exception
+can be called to terminate the iteration.
+
+  Iterator objects returned by either of these iter() calls will have a next() method. If this next() method does not return
+the next value in the iteration or a StopIteration, the iterator should not terminate, but propagate an error.
 
 ## Proposed Revisions ##
 
