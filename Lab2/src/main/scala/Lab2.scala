@@ -14,7 +14,7 @@ object Lab2 {
    * by '<'... '>'.
    * 
    * Replace the 'throw new UnsupportedOperationException' expression with
-   * your code in each function.
+   * your code in each function. 
    * 
    * Do not make other modifications to this template, such as
    * - adding "extends App" or "extends Application" to your Lab object,
