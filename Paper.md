@@ -5,6 +5,8 @@ more easily and elegantly.  The overarching goal of the proposal can be summariz
 enhancements for pbject iteration with respect to dictionaries, files, lists, and other objects implemented
 as collections and sequences. 
 
+## Prior to Iterators ##
+
 ## Object Iterators ##
   The iterator proposed in PEP 234 added new memory space "slots" for the next item in the sequence and 
 for a constructor that creates a new iterator for the object.  The first is called tp_iternext and it 
