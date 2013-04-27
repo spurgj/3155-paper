@@ -40,7 +40,32 @@ value.  The PyIter_Next() function actually clears this exception, making the Nu
 
 # The Proposal #
 ## How Was it Implemented and Why? ##
-  In Python's API, a new built-in function (iter()) was defined. It could be called in one of two ways:
+ Understanding the difference between something that is iterable and an iterator is crucial to understanding how for loops work. 
+ A container is said to be iterable if it has the '__iter__' method defined.
+ 
+ An iterator is defined as an object that supports the iterator protocol. This basically means that the following two methods need 
+ to be defined:
+ 
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;It has an '__iter__' method defined which returns itself.
+  
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;It has a next method defined (__next__ in Python 3.x) which returns the next value every time the next method is invoked on it.
+
+ As an example, consider a list: A list is iterable, but a list is not its own iterator.  The iterator of a list is actually a listiterator object. A listiterator 
+ is its own iterator.
+```
+>>> a = [1, 2, 3, 4]
+>>> # a list is iterable because it has the __iter__ method
+>>> a.__iter__
+<method-wrapper '__iter__' of list object at 0x014E5D78>
+>>> # However a list does not have the next method, so it's not an iterator
+>>> a.next
+AttributeError: 'list' object has no attribute 'next'
+>>> # a list is not its own iterator
+>>> iter(a) is a
+False
+```
+
+  This propsoal modified Python's API, defining a new built-in function iter(). It could be called in one of two ways:
   
   1: iter(obj) calls PyObject_GetIter(obj) or 
   
@@ -49,10 +74,17 @@ value.  The PyIter_Next() function actually clears this exception, making the Nu
   This second instance returns a special kind of iterator that calls the callable to produce a new value, and compares the 
 return value to the sentinel value. Iteration is terminated if the return value equals the sentinel. If they are not equal,
 the return value is returned as the next value from the iterator. Alternatively, the aforementioned "StopIteration" exception
-can be called to terminate the iteration.
-
-  Iterator objects returned by either of these iter() calls will have a next() method. If this next() method does not return
+can be called to terminate the iteration. Iterator objects returned by either of these iter() calls will have a next() method. If this next() method does not return
 the next value in the iteration or a StopIteration, the iterator should not terminate, but propagate an error.
+
+ The author of the proposal lists benefits of implementing all parts of the proposal:
+ >   1. It provides an extensible iterator interface.
+ >   2. It allows performance enhancements to list iteration.
+ >   3. It allows big performance enhancements to dictionary iteration.
+ >   4. It allows one to provide an interface for just iteration without pretending to provide random access to elements.
+ >   5. It is backward-compatible with all existing user-defined classes and extension objects that emulate sequences 
+ and mappings, even mappings that only implement a subset of {__getitem__, keys, values, items}.
+ >   6. It makes code iterating over non-sequence collections more concise and readable.
 
 ## Proposed Revisions ##
 
