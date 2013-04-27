@@ -89,6 +89,8 @@ the next value in the iteration or a StopIteration, the iterator should not term
  and mappings, even mappings that only implement a subset of {__getitem__, keys, values, items}.
  >   6. It makes code iterating over non-sequence collections more concise and readable.
 
+
+
 ## Proposed Revisions ##
 The proposal includes three distinct sections.  Each one addresses an aspect of the python programming language that 
 would change as a result of the proposal's implementation.  First, a basic protocol for the iterator objects is presented.
