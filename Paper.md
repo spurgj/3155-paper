@@ -64,6 +64,7 @@ AttributeError: 'list' object has no attribute 'next'
 >>> iter(a) is a
 False
 ```
+(Source=[http://www.shutupandship.com/2012/01/understanding-python-iterables-and.html])
 
   This propsoal modified Python's API, defining a new built-in function iter(). It could be called in one of two ways:
   
@@ -87,5 +88,14 @@ the next value in the iteration or a StopIteration, the iterator should not term
  >   6. It makes code iterating over non-sequence collections more concise and readable.
 
 ## Proposed Revisions ##
+The proposal includes three distinct sections.  Each one addresses an aspect of the python programming language that 
+would change as a result of the proposal's implementation.  First, a basic protocol for the iterator objects is presented.
+The second and third sections discuss the iterators in the context of maps and sequences respectively.
 
+After initially reading the proposal, many in the Python community questioned exactly how the three sections 
+fit into the proposal as a whole.  The authors were quick to point out that the each section is a natural corollary of 
+the one before it.  The authors wrote that the sections by themselves seemed to have "loose ends," but the entirety of 
+the proposal had a quality of "closure."  With respect to maps, for example, the authors asked: "If we can iterate over 
+two of the basic collection types, why can't we iterate over the third type, dictionaries?" 
+(Source=[http://tech.groups.yahoo.com/group/python-iter/message/11])
 # Conclusion #
