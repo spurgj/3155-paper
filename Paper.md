@@ -2,7 +2,7 @@
  In January of 2001, Yee and Rossum proposed a new iterator interface for objects in Python.
 The proposed implementation was an itarator object that allows programmers to loop over objects 
 more easily and elegantly.  The overarching goal of the proposal can be summarized as follows: performance 
-enhancements for pbject iteration with respect to dictionaries, files, lists, and other objects implemented
+enhancements for object iteration with respect to dictionaries, files, lists, and other objects implemented
 as collections and sequences. 
 
 ## Prior to Iterators ##
@@ -13,7 +13,7 @@ Before the advent of iterators in Python, iterating over lists, dictionaries, an
 **Syntactic Comparison between Pre-Iterator & Iterator Forms**
 
 *Pre-Iterator Form:*
-
+```python
 instance = some_class(x,y)
 
 while 1:
@@ -25,19 +25,21 @@ if not item:
 break
 
 do_something_with_item
+```
 
 *Iterator Form:*
-
+```python
 for item iterating some_class(x,y).f:
 
 DoSomethingWithItem
+```
 
-Iterators also offer a very clean syntax compared to pre-iterator methods. In particular, writing list comprehensions via iterators often uses a single line, vs. several lines without iterators (see below). Iterators offer similarly clean syntax for concatenating values, recursive generation, statistics (sum, min, max), and a wide variety of other functions. Because they reduce the complicate syntax of these operations, and increase performance, iterators are now very common in Python. The non-iterator, looping syntax have been eclipsed by the ease of use of iterators.
+Iterators also offer a very clean syntax compared to pre-iterator methods. In particular, writing list comprehensions via iterators often uses a single line, vs. several lines without iterators (see below). Iterators offer similarly clean syntax for concatenating values, recursive generation, statistics (sum, min, max), and a wide variety of other functions. Because they reduce the complex syntax of these operations, and increase performance, iterators are now very common in Python. The non-iterator, looping syntax has been eclipsed by the ease of use of iterators.
 
 **Syntactic Comparison between Pre-Iterator & Iterator Forms, list comprehensions**
 
 *Pre-Iterator Form:*
-
+```python
 instance = some_class(x,y)
 S = []
 
@@ -52,19 +54,22 @@ break
 if (item * 2 > 3):
 
 S.append(item * 2)
+```
 
 *Iterator Form:*
-
+```python
 instance = some_class(x,y)
 
 S = [2 * x for x in instance if x ** 2 > 3]
+```
+
 
 ## Object Iterators ##
   The iterator proposed in PEP 234 added new memory space "slots" for the next item in the sequence and 
 for a constructor that creates a new iterator for the object.  The first is called tp_iternext and it 
 uses the PyIter_Next() method to obtain the next element.  This slot should only be present for objects with 
 iterators.  The second is called tp_iter, which is used to "request" the iterator and can be present in any object.
-  tp/_iternext contains the return value from the method PyIter/_Next(), which is either the next element in the collection 
+  tp_iternext contains the return value from the method PyIter_Next(), which is either the next element in the collection 
 object (Py Object *) or Null.  PyIter-Next() is a higher order function that takes a Python iterator object as its argument.  
 In the below example, the programmer declares two python objects; one for the collection items and one for the iterator.  
 The iterator is then checked for a Null value (meaning some error or empty).  The code then proceeds with a while loop
@@ -106,7 +111,7 @@ value.  The PyIter_Next() function actually clears this exception, making the Nu
 
  As an example, consider a list: A list is iterable, but a list is not its own iterator.  The iterator of a list is actually a listiterator object. A listiterator 
  is its own iterator.
-```
+```python
 >>> a = [1, 2, 3, 4]
 >>> # a list is iterable because it has the __iter__ method
 >>> a.__iter__
@@ -132,15 +137,6 @@ the return value is returned as the next value from the iterator. Alternatively,
 can be called to terminate the iteration. Iterator objects returned by either of these iter() calls will have a next() method. If this next() method does not return
 the next value in the iteration or a StopIteration, the iterator should not terminate, but propagate an error.
 
- The author of the proposal lists benefits of implementing all parts of the proposal:
- >   1. It provides an extensible iterator interface.
- >   2. It allows performance enhancements to list iteration.
- >   3. It allows big performance enhancements to dictionary iteration.
- >   4. It allows one to provide an interface for just iteration without pretending to provide random access to elements.
- >   5. It is backward-compatible with all existing user-defined classes and extension objects that emulate sequences 
- and mappings, even mappings that only implement a subset of {__getitem__, keys, values, items}.
- >   6. It makes code iterating over non-sequence collections more concise and readable.
-
 
 
 ## Proposed Revisions ##
@@ -155,3 +151,14 @@ the proposal had a quality of "closure."  With respect to maps, for example, the
 two of the basic collection types, why can't we iterate over the third type, dictionaries?" 
 (Source=[http://tech.groups.yahoo.com/group/python-iter/message/11])
 # Conclusion #
+
+
+ In summary, the author of the proposal lists benefits of implementing all parts of the proposal:
+ >   1. It provides an extensible iterator interface.
+ >   2. It allows performance enhancements to list iteration.
+ >   3. It allows big performance enhancements to dictionary iteration.
+ >   4. It allows one to provide an interface for just iteration without pretending to provide random access to elements.
+ >   5. It is backward-compatible with all existing user-defined classes and extension objects that emulate sequences 
+ and mappings, even mappings that only implement a subset of {__getitem__, keys, values, items}.
+ >   6. It makes code iterating over non-sequence collections more concise and readable.
+
