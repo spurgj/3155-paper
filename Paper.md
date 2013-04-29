@@ -162,3 +162,8 @@ two of the basic collection types, why can't we iterate over the third type, dic
  and mappings, even mappings that only implement a subset of {__getitem__, keys, values, items}.
  >   6. It makes code iterating over non-sequence collections more concise and readable.
 
+Iterators have completely superceded loops and other non-iterator methods in Python. 
+Iterators offer clean, powerful code that can be easily adapted for a variety of problems, such as list comprehensions.
+The PEP concerning iterators was extensively revised, accepted, and included into the Python language. It fulfilled a need
+that was apparent to the Python community, and despite some disagreements over syntax and functionality, iterators have been
+adopted near-universally.
