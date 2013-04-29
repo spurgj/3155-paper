@@ -6,6 +6,58 @@ enhancements for pbject iteration with respect to dictionaries, files, lists, an
 as collections and sequences. 
 
 ## Prior to Iterators ##
+Before the advent of iterators in Python, iterating over lists, dictionaries, and collections each required very different syntaxes (see below). The pre-iterator syntax typically relies on the use of while loops, in concert with the various means (list[i], dictionary.getValue(i), etc.) for obtaining member values. The while loop method requires having as much of the list/dictionary in memory as possible. The cache readily accommodates small collections but as the size of the collection grows, it will reach a point where it can no longer entirely fit in the cache.  This can hamper performance significantly, as the fraction of the collection in the cache must switch repeatedly. Iterators do not suffer from this scalability issue. An iterator only takes up as much memory as one value at any given time. By keeping its cache usage constant and reusing the same space in memory, an iterator operates just as well on millions of values as it does on tens of values. [Performance Differences between Lists & Iterators] [diffs]
+
+[diffs]: http://markmail.org/message/t2a6tp33n5lddzvy
+
+**Syntactic Comparison between Pre-Iterator & Iterator Forms**
+
+*Pre-Iterator Form:*
+
+instance = some_class(x,y)
+
+while 1:
+
+item = instance.f()
+
+if not item:
+
+break
+
+do_something_with_item
+
+*Iterator Form:*
+
+for item iterating some_class(x,y).f:
+
+DoSomethingWithItem
+
+Iterators also offer a very clean syntax compared to pre-iterator methods. In particular, writing list comprehensions via iterators often uses a single line, vs. several lines without iterators (see below). Iterators offer similarly clean syntax for concatenating values, recursive generation, statistics (sum, min, max), and a wide variety of other functions. Because they reduce the complicate syntax of these operations, and increase performance, iterators are now very common in Python. The non-iterator, looping syntax have been eclipsed by the ease of use of iterators.
+
+**Syntactic Comparison between Pre-Iterator & Iterator Forms, list comprehensions**
+
+*Pre-Iterator Form:*
+
+instance = some_class(x,y)
+S = []
+
+while 1:
+
+item = instance.f()
+
+if not item:
+
+break
+
+if (item * 2 > 3):
+
+S.append(item * 2)
+
+*Iterator Form:*
+
+instance = some_class(x,y)
+
+S = [2 * x for x in instance if x ** 2 > 3]
 
 ## Object Iterators ##
   The iterator proposed in PEP 234 added new memory space "slots" for the next item in the sequence and 
