@@ -1,12 +1,20 @@
 # Background #
  In January of 2001, Yee and Rossum proposed a new iterator interface for objects in Python.
-The proposed implementation was an itarator object that allows programmers to loop over objects 
+The proposed implementation was an iterator object that allows programmers to loop over objects 
 more easily and elegantly.  The overarching goal of the proposal can be summarized as follows: performance 
 enhancements for object iteration with respect to dictionaries, files, lists, and other objects implemented
 as collections and sequences. 
 
 ## Prior to Iterators ##
-Before the advent of iterators in Python, iterating over lists, dictionaries, and collections each required very different syntaxes (see below). The pre-iterator syntax typically relies on the use of while loops, in concert with the various means (list[i], dictionary.getValue(i), etc.) for obtaining member values. The while loop method requires having as much of the list/dictionary in memory as possible. The cache readily accommodates small collections but as the size of the collection grows, it will reach a point where it can no longer entirely fit in the cache.  This can hamper performance significantly, as the fraction of the collection in the cache must switch repeatedly. Iterators do not suffer from this scalability issue. An iterator only takes up as much memory as one value at any given time. By keeping its cache usage constant and reusing the same space in memory, an iterator operates just as well on millions of values as it does on tens of values. [Performance Differences between Lists & Iterators] [diffs]
+Before the advent of iterators in Python, iterating over lists, dictionaries, and collections each required very 
+different syntaxes (see below). The pre-iterator syntax typically relies on the use of while loops, in concert 
+with the various means (list[i], dictionary.getValue(i), etc.) for obtaining member values. The while loop method 
+requires having as much of the list/dictionary in memory as possible. The cache readily accommodates small collections 
+but as the size of the collection grows, it will reach a point where it can no longer entirely fit in the cache.  This 
+can hamper performance significantly, as the fraction of the collection in the cache must switch repeatedly. Iterators 
+do not suffer from this scalability issue. An iterator only takes up as much memory as one value at any given time. 
+By keeping its cache usage constant and reusing the same space in memory, an iterator operates just as well on 
+millions of values as it does on tens of values. [Performance Differences between Lists & Iterators] [diffs]
 
 [diffs]: http://markmail.org/message/t2a6tp33n5lddzvy
 
@@ -86,7 +94,10 @@ while (item = PyIter_Next(iterator)) {
     /* do something with item */
 }
 ```
-(reference: [http://docs.python.org/2/c-api/iter.html]).  In the Principles of Programming Languages lectures this semester,
+[diffs1]: http://docs.python.org/2/c-api/iter.html
+[Source] [diffs1]
+
+  In the Principles of Programming Languages lectures this semester,
 we learned that higher order functions are important in the functional programming paradigm.  For loops and traditional 
 iteration is normally associated with imperative programming, but using functions as data (and focusing on function calls
 to drive the program flow) is in the spirit of the functional programming paradigm.
@@ -123,7 +134,8 @@ AttributeError: 'list' object has no attribute 'next'
 >>> iter(a) is a
 False
 ```
-(Source=[http://www.shutupandship.com/2012/01/understanding-python-iterables-and.html])
+[diffs2]: http://www.shutupandship.com/2012/01/understanding-python-iterables-and.html
+[Source] [diffs2]
 
   This propsoal modified Python's API, defining a new built-in function iter(). It could be called in one of two ways:
   
@@ -149,7 +161,8 @@ fit into the proposal as a whole.  The authors were quick to point out that the 
 the one before it.  The authors wrote that the sections by themselves seemed to have "loose ends," but the entirety of 
 the proposal had a quality of "closure."  With respect to maps, for example, the authors asked: "If we can iterate over 
 two of the basic collection types, why can't we iterate over the third type, dictionaries?" 
-(Source=[http://tech.groups.yahoo.com/group/python-iter/message/11])
+[diffs3]: http://tech.groups.yahoo.com/group/python-iter/message/11
+[Source] [diffs3]
 # Conclusion #
 
 
