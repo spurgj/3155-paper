@@ -1,3 +1,6 @@
+Team
+============
+Kevin Barry, Thomas Dressler, Justin Spurgeon
 
 Introduction
 ============
