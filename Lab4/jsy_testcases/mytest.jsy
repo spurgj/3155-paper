@@ -1,0 +1,14 @@
+const x = {
+	five: 5,
+	y: 55,
+	obj : {
+		quotient: function(divisor: number, dividend: number){
+			return {
+				divisor: divisor, dividend: dividend, divisible: dividend/divisor;
+			};
+		}
+	}
+}
+
+const xquotient = x.obj.quotient(five, y)
+jsy.print(xquotient)

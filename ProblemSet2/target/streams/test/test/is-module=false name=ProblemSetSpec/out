@@ -1,0 +1,85 @@
+[0m[[0minfo[0m] [0m[32mProblemSetSpec:[0m[0m
+[0m[[0minfo[0m] [0m[32mjoin [0m[0m
+[0m[[0minfo[0m] [0m[31m- should join two lists together on the first element *** FAILED ***[0m[0m
+[0m[[0minfo[0m] [0m[31m  java.lang.UnsupportedOperationException:[0m[0m
+[0m[[0minfo[0m] [0m[31m  at ProblemSet2$.join(ProblemSet.scala:13)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at ProblemSetSpec$$anonfun$1.apply$mcV$sp(ProblemSetSpec.scala:8)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at ProblemSetSpec$$anonfun$1.apply(ProblemSetSpec.scala:8)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at ProblemSetSpec$$anonfun$1.apply(ProblemSetSpec.scala:8)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.FlatSpec$$anon$1.apply(FlatSpec.scala:2563)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.Suite$class.withFixture(Suite.scala:1968)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at ProblemSetSpec.withFixture(ProblemSetSpec.scala:5)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.FlatSpec$class.invokeWithFixture$1(FlatSpec.scala:2560)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.FlatSpec$$anonfun$runTest$1.apply(FlatSpec.scala:2569)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.FlatSpec$$anonfun$runTest$1.apply(FlatSpec.scala:2569)[0m[0m
+[0m[[0minfo[0m] [0m[31m  ...[0m[0m
+[0m[[0minfo[0m] [0m[32mjoin [0m[0m
+[0m[[0minfo[0m] [0m[31m- should join two lists together on an arbitrary predicate *** FAILED ***[0m[0m
+[0m[[0minfo[0m] [0m[31m  java.lang.UnsupportedOperationException:[0m[0m
+[0m[[0minfo[0m] [0m[31m  at ProblemSet2$.join(ProblemSet.scala:13)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at ProblemSetSpec$$anonfun$2.apply$mcV$sp(ProblemSetSpec.scala:20)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at ProblemSetSpec$$anonfun$2.apply(ProblemSetSpec.scala:20)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at ProblemSetSpec$$anonfun$2.apply(ProblemSetSpec.scala:20)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.FlatSpec$$anon$1.apply(FlatSpec.scala:2563)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.Suite$class.withFixture(Suite.scala:1968)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at ProblemSetSpec.withFixture(ProblemSetSpec.scala:5)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.FlatSpec$class.invokeWithFixture$1(FlatSpec.scala:2560)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.FlatSpec$$anonfun$runTest$1.apply(FlatSpec.scala:2569)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.FlatSpec$$anonfun$runTest$1.apply(FlatSpec.scala:2569)[0m[0m
+[0m[[0minfo[0m] [0m[31m  ...[0m[0m
+[0m[[0minfo[0m] [0m[32meval [0m[0m
+[0m[[0minfo[0m] [0m[31m- should evaluate a Boolean expression in a given environment *** FAILED ***[0m[0m
+[0m[[0minfo[0m] [0m[31m  java.lang.UnsupportedOperationException:[0m[0m
+[0m[[0minfo[0m] [0m[31m  at ProblemSet2$.eval(ProblemSet.scala:36)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at ProblemSetSpec$$anonfun$3.apply$mcV$sp(ProblemSetSpec.scala:33)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at ProblemSetSpec$$anonfun$3.apply(ProblemSetSpec.scala:32)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at ProblemSetSpec$$anonfun$3.apply(ProblemSetSpec.scala:32)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.FlatSpec$$anon$1.apply(FlatSpec.scala:2563)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.Suite$class.withFixture(Suite.scala:1968)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at ProblemSetSpec.withFixture(ProblemSetSpec.scala:5)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.FlatSpec$class.invokeWithFixture$1(FlatSpec.scala:2560)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.FlatSpec$$anonfun$runTest$1.apply(FlatSpec.scala:2569)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.FlatSpec$$anonfun$runTest$1.apply(FlatSpec.scala:2569)[0m[0m
+[0m[[0minfo[0m] [0m[31m  ...[0m[0m
+[0m[[0minfo[0m] [0m[32mpow [0m[0m
+[0m[[0minfo[0m] [0m[31m- should produce the nth Cartesian product of a given List *** FAILED ***[0m[0m
+[0m[[0minfo[0m] [0m[31m  java.lang.UnsupportedOperationException:[0m[0m
+[0m[[0minfo[0m] [0m[31m  at ProblemSet2$.pow(ProblemSet.scala:45)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at ProblemSetSpec$$anonfun$4.apply$mcV$sp(ProblemSetSpec.scala:41)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at ProblemSetSpec$$anonfun$4.apply(ProblemSetSpec.scala:39)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at ProblemSetSpec$$anonfun$4.apply(ProblemSetSpec.scala:39)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.FlatSpec$$anon$1.apply(FlatSpec.scala:2563)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.Suite$class.withFixture(Suite.scala:1968)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at ProblemSetSpec.withFixture(ProblemSetSpec.scala:5)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.FlatSpec$class.invokeWithFixture$1(FlatSpec.scala:2560)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.FlatSpec$$anonfun$runTest$1.apply(FlatSpec.scala:2569)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.FlatSpec$$anonfun$runTest$1.apply(FlatSpec.scala:2569)[0m[0m
+[0m[[0minfo[0m] [0m[31m  ...[0m[0m
+[0m[[0minfo[0m] [0m[32mvars [0m[0m
+[0m[[0minfo[0m] [0m[31m- should determine the set of variables in the Boolean expression *** FAILED ***[0m[0m
+[0m[[0minfo[0m] [0m[31m  java.lang.UnsupportedOperationException:[0m[0m
+[0m[[0minfo[0m] [0m[31m  at ProblemSet2$.vars(ProblemSet.scala:50)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at ProblemSetSpec$$anonfun$5.apply$mcV$sp(ProblemSetSpec.scala:60)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at ProblemSetSpec$$anonfun$5.apply(ProblemSetSpec.scala:59)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at ProblemSetSpec$$anonfun$5.apply(ProblemSetSpec.scala:59)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.FlatSpec$$anon$1.apply(FlatSpec.scala:2563)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.Suite$class.withFixture(Suite.scala:1968)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at ProblemSetSpec.withFixture(ProblemSetSpec.scala:5)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.FlatSpec$class.invokeWithFixture$1(FlatSpec.scala:2560)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.FlatSpec$$anonfun$runTest$1.apply(FlatSpec.scala:2569)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.FlatSpec$$anonfun$runTest$1.apply(FlatSpec.scala:2569)[0m[0m
+[0m[[0minfo[0m] [0m[31m  ...[0m[0m
+[0m[[0minfo[0m] [0m[32msatisfiable [0m[0m
+[0m[[0minfo[0m] [0m[31m- should decide if the Boolean expression can be evaluated to true in some environment *** FAILED ***[0m[0m
+[0m[[0minfo[0m] [0m[31m  java.lang.UnsupportedOperationException:[0m[0m
+[0m[[0minfo[0m] [0m[31m  at ProblemSet2$.vars(ProblemSet.scala:50)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at ProblemSet2$.satisfiable(ProblemSet.scala:53)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at ProblemSetSpec$$anonfun$6.apply$mcV$sp(ProblemSetSpec.scala:67)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at ProblemSetSpec$$anonfun$6.apply(ProblemSetSpec.scala:66)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at ProblemSetSpec$$anonfun$6.apply(ProblemSetSpec.scala:66)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.FlatSpec$$anon$1.apply(FlatSpec.scala:2563)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.Suite$class.withFixture(Suite.scala:1968)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at ProblemSetSpec.withFixture(ProblemSetSpec.scala:5)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.FlatSpec$class.invokeWithFixture$1(FlatSpec.scala:2560)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.FlatSpec$$anonfun$runTest$1.apply(FlatSpec.scala:2569)[0m[0m
+[0m[[0minfo[0m] [0m[31m  ...[0m[0m
